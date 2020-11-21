@@ -1,4 +1,4 @@
-set(APP_EXE "CComputerGraphics")
+set(APP_EXE "main")
 
 add_executable(${APP_EXE} main.c)
 
@@ -21,6 +21,8 @@ target_compile_options(${APP_EXE}
 
 target_link_libraries(${APP_EXE}
         PRIVATE
+        "$<$<CONFIG:Debug>:asan>"
+        "$<$<CONFIG:Debug>:ubsan>"
         app
         m # math lib
         )
